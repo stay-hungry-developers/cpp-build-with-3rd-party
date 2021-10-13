@@ -25,17 +25,17 @@ jobs:
           make --version
       - name: build using g++
         run: |
-          g++ -I ./include -c src.cpp 
-          g++ -I ./include -c main.cpp 
+          g++ -I ./include -c ./src/src.cpp 
+          g++ -I ./include -c ./src/main.cpp 
           g++ src.o main.o -o hello.out
           ./hello.out
       - name: build using clang++
         run: |
-          clang++ -I ./include -c src.cpp
-          clang++ -I ./include -c main.cpp
+          clang++ -I ./include -c ./src/src.cpp
+          clang++ -I ./include -c ./src/main.cpp
           clang++ src.cpp main.cpp -o hello.out
           ./hello.out
-      # - name: build using make
-      #   run: |
-      #     make
-      #     ./output.out
+      - name: build using make
+        run: |
+          make
+          ./output.out
